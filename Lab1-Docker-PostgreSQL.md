@@ -81,6 +81,8 @@ docker run hello-world
 **บันทึกผลการทดลอง - การเตรียมความพร้อม:**
 ```
 ใส่ Screenshot ของผลการรัน docker --version และ docker run hello-world ที่นี่
+<img width="1412" height="532" alt="image" src="https://github.com/user-attachments/assets/460c06e7-c9c5-4e6a-9947-f9c9a9704fd3" />
+
 ```
 
 ## ขั้นตอนการทดลอง
