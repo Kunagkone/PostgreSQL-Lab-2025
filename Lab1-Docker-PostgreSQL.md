@@ -170,8 +170,10 @@ docker run --name postgres-lab \
 - `-c shared_buffers=256MB`: กำหนด shared buffers
 
 **บันทึกผลการทดลอง - Step 3:**
-```
+``
 ใส่ Screenshot ของผลการรัน docker run ที่นี่
+<img width="1914" height="1025" alt="image" src="https://github.com/user-attachments/assets/c085f946-a939-4ea0-a7ef-4b1a06b2539a" />
+
 ```
 
 ### Step 4: Verify Container Status and Resource Usage
