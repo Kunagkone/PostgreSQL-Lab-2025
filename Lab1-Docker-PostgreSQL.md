@@ -433,8 +433,11 @@ GRANT SELECT ON postgres_test_table TO lab_user;
 2. <img width="1204" height="108" alt="image" src="https://github.com/user-attachments/assets/0eb30f0a-2a13-4c3f-8e9d-8dfea948a90f" />
 
 3. ผลการรัน \dp test_permissions
-4. 
+4. <img width="1211" height="209" alt="image" src="https://github.com/user-attachments/assets/ec7b7597-e0e6-4d25-ad38-19e5766241a7" />
+
 5. ผลการ GRANT commands
+6. <img width="1197" height="96" alt="image" src="https://github.com/user-attachments/assets/a2c7b4b7-f417-491c-bd26-2c64a1740acd" />
+
 ```
 **คำถาม
  ```
