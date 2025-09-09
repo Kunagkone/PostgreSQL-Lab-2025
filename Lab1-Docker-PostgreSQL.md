@@ -193,11 +193,17 @@ docker volume inspect postgres-data
 ```
 
 **บันทึกผลการทดลอง - Step 4:**
-```
+``
 ใส่ Screenshot ของ:
 1. ผลการรัน docker ps
-2. ส่วนหนึ่งของ docker logs postgres-lab
-3. ผลการรัน docker stats
+2. <img width="1378" height="560" alt="image" src="https://github.com/user-attachments/assets/54f8fd6f-0244-4408-a8b0-21d90a9adfc9" />
+
+3. ส่วนหนึ่งของ docker logs postgres-lab
+4. <img width="1372" height="552" alt="image" src="https://github.com/user-attachments/assets/408b5f6f-66e5-4a09-a0f0-9a90dc8900c9" />
+
+5. ผลการรัน docker stats
+6. <img width="1079" height="79" alt="image" src="https://github.com/user-attachments/assets/15d5ad5a-b85c-49a9-9bda-f97835cbeeff" />
+
 ```
 
 ### Step 5: Connect to PostgreSQL และตรวจสอบ Configuration
