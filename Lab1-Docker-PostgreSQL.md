@@ -427,11 +427,14 @@ GRANT SELECT ON postgres_test_table TO lab_user;
 ```
 
 **บันทึกผลการทดลอง - Step 8:**
-```
+``
 ใส่ Screenshot ของ:
 1. ผลการ ALTER USER commands
-2. ผลการรัน \dp test_permissions
-3. ผลการ GRANT commands
+2. <img width="1204" height="108" alt="image" src="https://github.com/user-attachments/assets/0eb30f0a-2a13-4c3f-8e9d-8dfea948a90f" />
+
+3. ผลการรัน \dp test_permissions
+4. 
+5. ผลการ GRANT commands
 ```
 **คำถาม
  ```
