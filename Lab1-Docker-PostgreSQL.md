@@ -442,7 +442,7 @@ GRANT SELECT ON postgres_test_table TO lab_user;
 **คำถาม
  ```
 Access Privileges   postgres=arwdDxtm/postgres มีความหมายอย่างไร
-
+เป็นการแสดงสิทธิ์ (privileges) ที่ถูกกำหนดให้กับ role หรือ user (ในที่นี้คือ postgres) บน object นั้น ๆ (เช่น ตาราง) โดยสิ่งที่อยู่หลังเครื่องหมาย
 
  ```
 ### Step 9: Schema Management และ Namespace
