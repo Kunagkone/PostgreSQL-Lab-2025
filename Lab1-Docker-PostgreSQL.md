@@ -554,7 +554,11 @@ INSERT INTO hr.employee_orders (employee_id, customer_id, order_date, commission
 <img width="566" height="190" alt="Screenshot 2025-09-12 100526" src="https://github.com/user-attachments/assets/45762234-7456-4b22-acfc-41ffccce37ac" />
 
 5. ผลการใส่ข้อมูลและ query ข้อมูล
-6. ข้อมูลในตาราง employee_orders ที่จะใช้สำหรับ JOIN ข้าม schema
+6. <img width="1039" height="273" alt="image" src="https://github.com/user-attachments/assets/fc6e783a-ada6-4e79-a7dd-dab03c5a746d" />
+
+7. ข้อมูลในตาราง employee_orders ที่จะใช้สำหรับ JOIN ข้าม schema
+8. <img width="1294" height="253" alt="image" src="https://github.com/user-attachments/assets/a550a2f5-c53c-42b0-b808-a2e1e06599e3" />
+
 ```
 
 ### Step 10: ทดสอบการเข้าถึง Schema และ Search Path
