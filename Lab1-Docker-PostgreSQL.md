@@ -630,7 +630,12 @@ SET search_path TO public;
 <img width="914" height="460" alt="Screenshot 2025-09-13 210512" src="https://github.com/user-attachments/assets/14504d7f-ffdd-412a-8594-b032276a765c" />
 
 5. ผลการ JOIN ข้าม schemas (sales + hr + inventory)
-6. ข้อมูลที่แสดงจาก complex join ข้าม 3 schemas
+6. <img width="565" height="175" alt="image" src="https://github.com/user-attachments/assets/466b7e26-b793-465d-a01e-d776a5dc8885" />
+<img width="821" height="194" alt="image" src="https://github.com/user-attachments/assets/9560ac57-661b-4179-a681-85dd42f8f44b" />
+
+7. ข้อมูลที่แสดงจาก complex join ข้าม 3 schemas
+8. <img width="896" height="300" alt="image" src="https://github.com/user-attachments/assets/a1431857-32c9-4971-9684-1390349c0af6" />
+
 ```
 
 ### Step 11: ทดสอบการเชื่อมต่อจาก User อื่น
