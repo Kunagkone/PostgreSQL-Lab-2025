@@ -737,8 +737,12 @@ docker volume inspect postgres-data
 ```
 
 **บันทึกผล Checkpoint 1:**
-```
+``
 ใส่ Screenshot ของ resource usage และ volume information ที่นี่
+<img width="1035" height="118" alt="image" src="https://github.com/user-attachments/assets/d36d762a-bfb5-443e-947f-435b13b828fc" />
+<img width="837" height="178" alt="image" src="https://github.com/user-attachments/assets/796c9533-a554-4300-a2e0-0b0353de8ecc" />
+<img width="1043" height="298" alt="image" src="https://github.com/user-attachments/assets/1f4d4b8b-8e6a-4213-802f-9e84f739e205" />
+
 ```
 
 ### Checkpoint 2: Database Performance และ Configuration
@@ -785,11 +789,17 @@ WHERE state = 'active';
 ```
 
 **บันทึกผล Checkpoint 2:**
-```
+``
 ใส่ Screenshot ของ:
 1. Database statistics
-2. Memory configuration
-3. Active connections
+2. <img width="1010" height="194" alt="image" src="https://github.com/user-attachments/assets/0af26960-81ad-4506-a3ed-cdd783430061" />
+
+3. Memory configuration
+4. <img width="704" height="244" alt="image" src="https://github.com/user-attachments/assets/16eea2ea-2792-420f-81a9-e94d105af281" />
+
+5. Active connections
+6. <img width="803" height="170" alt="image" src="https://github.com/user-attachments/assets/1af2a14c-a3b5-4c5b-8748-c1aff40d0ff6" />
+
 ```
 
 ## การแก้ไขปัญหาเบื้องต้น
@@ -846,15 +856,22 @@ docker volume create postgres-data
 
 ```bash
 # พื้นที่สำหรับคำตอบ - เขียน command ที่ใช้
+docker run --name multi-postgres -e POSTGRES_PASSWORD=multipass123 -v multi-postgres-data:/var/lib/postgresql/data -p 5434:5432 --memory="1.5g" --cpus="1.5" -d postgres
 
 ```
 
 **ผลการทำแบบฝึกหัด 1:**
-```
+``
 ใส่ Screenshot ของ:
 1. คำสั่งที่ใช้สร้าง container
-2. docker ps แสดง container ใหม่
-3. docker stats แสดงการใช้ resources
+2. docker run --name multi-postgres -e POSTGRES_PASSWORD=multipass123 -v multi-postgres-data:/var/lib/postgresql/data -p 5434:5432 --memory="1.5g" --cpus="1.5" -d postgres
+
+3. docker ps แสดง container ใหม่
+4. <img width="1403" height="180" alt="image" src="https://github.com/user-attachments/assets/a50a9857-96a0-4941-843f-7413336e51c5" />
+
+5. docker stats แสดงการใช้ resources
+6. <img width="1336" height="265" alt="image" src="https://github.com/user-attachments/assets/8299a1d3-b054-4a9e-acf7-8c213ae0c051" />
+
 ```
 
 ### แบบฝึกหัด 2: User Management และ Security
@@ -872,15 +889,37 @@ docker volume create postgres-data
 
 ```sql
 -- พื้นที่สำหรับคำตอบ - เขียน SQL commands ที่ใช้
+-- สร้าง Role Groups
+CREATE ROLE app_developers NOLOGIN;
+CREATE ROLE data_analysts NOLOGIN;
+CREATE ROLE db_admins NOLOGIN;
 
+-- สร้าง Users และกำหนดรหัสผ่าน
+CREATE USER dev_user WITH PASSWORD 'dev123';
+CREATE USER analyst_user WITH PASSWORD 'analyst123';
+CREATE USER admin_user WITH PASSWORD 'admin123';
+
+-- กำหนด Users ให้เป็นสมาชิกของ Role Groups
+GRANT app_developers TO dev_user;
+GRANT data_analysts TO analyst_user;
+GRANT db_admins TO admin_user;
 ```
 
 **ผลการทำแบบฝึกหัด 2:**
-```
+``
 ใส่ Screenshot ของ:
 1. การสร้าง roles และ users
-2. ผลการรัน \du แสดงผู้ใช้ทั้งหมด
-3. ผลการทดสอบเชื่อมต่อด้วย user ต่างๆ
+2. <img width="820" height="157" alt="image" src="https://github.com/user-attachments/assets/129fb1bb-087b-459f-9715-a16d83a5c746" />
+<img width="1349" height="432" alt="image" src="https://github.com/user-attachments/assets/61e59076-0c64-485f-9c48-8bc8c55c82d2" />
+
+3. ผลการรัน \du แสดงผู้ใช้ทั้งหมด
+4. <img width="953" height="297" alt="image" src="https://github.com/user-attachments/assets/7cd4b9a4-76d7-4954-adfe-bec008037bb9" />
+
+5. ผลการทดสอบเชื่อมต่อด้วย user ต่างๆ
+6. <img width="681" height="77" alt="image" src="https://github.com/user-attachments/assets/b24f8de0-1abe-43be-b90a-75a72ee14d11" />
+<img width="676" height="67" alt="image" src="https://github.com/user-attachments/assets/fabf252f-dabc-4261-807d-295b368b3e1f" />
+<img width="660" height="79" alt="image" src="https://github.com/user-attachments/assets/e92ca573-15c4-485a-be8c-a1d83e9d4d77" />
+
 ```
 
 ### แบบฝึกหัด 3: Schema Design และ Complex Queries
@@ -1030,12 +1069,48 @@ INSERT INTO ecommerce.order_items (order_id, product_id, quantity, price) VALUES
 ```
 
 **ผลการทำแบบฝึกหัด 3:**
-```
+``
 ใส่ Screenshot ของ:
 1. โครงสร้าง schemas และ tables (\dn+, \dt ecommerce.*)
-2. ข้อมูลตัวอย่างในตารางต่างๆ
-3. ผลการรัน queries ที่สร้าง
-4. การวิเคราะห์ข้อมูลที่ได้
+2. <img width="961" height="278" alt="image" src="https://github.com/user-attachments/assets/3bfb01ce-e411-4826-8536-492554c9935f" />
+<img width="888" height="275" alt="image" src="https://github.com/user-attachments/assets/b8503b56-84ec-486e-8429-27bb25cc69a7" />
+
+3. ข้อมูลตัวอย่างในตารางต่างๆ
+4. <img width="788" height="230" alt="image" src="https://github.com/user-attachments/assets/42b2a3cf-9140-41c9-80af-49e56868b46e" />
+<img width="1057" height="516" alt="image" src="https://github.com/user-attachments/assets/a3368ed2-247d-4c33-8113-ffadebd1cb9d" />
+<img width="847" height="289" alt="image" src="https://github.com/user-attachments/assets/1d4cdd1d-1aab-421b-9e21-b0bf8d27e271" />
+<img width="1021" height="437" alt="image" src="https://github.com/user-attachments/assets/8c6f3ea5-b582-4721-9854-2ab987024ded" />
+<img width="965" height="516" alt="image" src="https://github.com/user-attachments/assets/6aa324cd-52fd-40c6-827a-5dc3ab7ee548" />
+
+5. ผลการรัน queries ที่สร้าง
+6. <img width="718" height="492" alt="image" src="https://github.com/user-attachments/assets/a8ee232a-f513-4ad9-8b1d-e9cd41c15d09" />
+<img width="765" height="290" alt="image" src="https://github.com/user-attachments/assets/d349f214-3df8-4ab4-a461-82862c4f32f4" />
+
+7. การวิเคราะห์ข้อมูลที่ได้
+8. Categories & Products
+-มี 5 categories: Electronics, Clothing, Books, Home & Garden, Sports
+-รวมสินค้า 17 รายการ
+-Electronics มีสินค้าสูงสุด (5 รายการ: iPhone, Galaxy, MacBook, Headphones, Mouse)
+-Clothing ก็มากเช่นกัน (5 รายการ: T-Shirt, Jeans, Sneakers, Jacket, Hat)
+-Books มี 3 รายการ (Programming Book, Novel, Textbook)
+-Home & Garden มี 2 รายการ
+-Sports มี 2 รายการ
+Customers
+-มี 8 customers (John, Sarah, Mike, Emily, David, Lisa, Tom, Amy)
+-ลูกค้าบางคนซื้อหลายครั้ง เช่น John Smith (orders 1, 4, 11), Sarah Johnson (orders 2, 7), Mike Brown (orders 3, 9)
+-ทำให้ามารถวิเคราะห์ Customer Loyalty ได้ เช่น John Smith ซื้อซ้ำหลายรอบ
+Orders
+-มี 15 orders รวมตั้งแต่ 2024-01-15 ถึง 2024-01-29
+Status ส่วนใหญ่คือ completed (12 รายการ), มี processing (1), shipped (1), ที่เหลือยัง pending ไม่มี
+ยอดซื้อสูงสุด: Order 6 (David Wilson) → MacBook Air + 2 Novels = 1329.97
+ยอดซื้อต่ำสุด: Order 11 (John Smith) → Programming Book = 39.99
+ลูกค้า John Smith ซื้อบ่อยที่สุด (3 ครั้ง)
+Order Items
+-Order 1: iPhone + Headphones = high value (~$1,200)
+-Order 3: Mix of Clothing + Electronics (Jeans, Mouse, T-Shirt)
+-Order 8: Lisa ซื้อ Sneakers x2, Hat, Book รวม ~$325 → ชอบซื้อหลาย category
+-Order 13: Emily ซื้อ Football x6 (bulk order) → บ่งบอกพฤติกรรมซื้อเป็นล็อต
+-Order 10: Tom ซื้อ Galaxy + 3 T-Shirts + Garden Tools → high basket diversity
 ```
 
 
@@ -1051,8 +1126,17 @@ INSERT INTO ecommerce.order_items (order_id, product_id, quantity, price) VALUES
 
 **คำตอบ Quiz 1:**
 ```
-เขียนคำตอบที่นี่
-```
+1. Named Volume พื้นที่เก็บข้อมูลที่ Docker จัดการให้เอง ใช้ชื่อตั้งแทน เช่น postgres-data  Bind Mount เอา path จริงของ host machine มา map เข้ากับ container
+2. เพื่อ สมดุลกับ OS Page Cache ลด Overhead ของ PostgreSQL เอง ป้องกันไม่ให้แย่ง RAM ทั้งหมด
+3. การจัดระเบียบโครงสร้าง  การจัดการสิทธิ์  การสนับสนุนหลายทีม การดูแลและบำรุงรักษา
+4. ติดตั้งง่าย ไม่พึ่ง OS
+-ได้ environment ที่เสถียรเหมือนกันทุกเครื่อง
+-แยก DB หลายเวอร์ชันได้โดยไม่ชนกัน
+-ย้ายข้ามเครื่อง/ทีมได้สะดวก
+-จัดการข้อมูล/backup ง่าย
+-ใช้คู่กับ Docker Compose → จัดการระบบใหญ่ได้ครบ
+-สนับสนุน automated testing และ CI/CD
+``` 
 
 
 ## สรุปและการประเมินผล
